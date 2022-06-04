@@ -1,0 +1,17 @@
+version: '3'
+services:
+  boomi_atom:
+    image: boomi/atom:release
+    privileged: true
+    environment:
+      - URL=https://platform.boomi.com
+      - BOOMI_ATOMNAME=atom-docker
+      - BOOMI_CONTAINERNAME=atom-docker
+      - ATOM_LOCALHOSTID=atom-docker
+      - INSTALL_TOKEN=atom-bb8de309-9430-4e9a-bd9d-78796cb9782f
+      - BOOMI_ENVIRONMENTID=0660a6e9-e4e8-4e9d-9fa5-cffb78580423
+      - INSTALLATION_DIRECTORY=/var/boomi
+    ports:
+      - "9090:9090"
+    volumes:
+      - "./boomi_dir:/var/boomi:consistent"
